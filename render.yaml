@@ -1,0 +1,41 @@
+services:
+  # 1. Express Node.js Backend Web Service
+  - type: web
+    name: cloud-storage-access-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: DATABASE_URL
+        sync: false # User supplies this in Render Dashboard
+      - key: JWT_SECRET
+        sync: false # User supplies this in Render Dashboard
+      - key: AWS_ACCESS_KEY_ID
+        sync: false # User supplies this in Render Dashboard
+      - key: AWS_SECRET_ACCESS_KEY
+        sync: false # User supplies this in Render Dashboard
+      - key: AWS_REGION
+        sync: false # User supplies this in Render Dashboard
+      - key: AWS_BUCKET_NAME
+        sync: false # User supplies this in Render Dashboard
+
+  # 2. React Vite Frontend Static Site
+  - type: static
+    name: cloud-storage-access-frontend
+    env: static
+    rootDir: frontend
+    buildCommand: npm install --legacy-peer-deps && npm run build
+    publishPath: dist
+    routes:
+      # SPA rewrite rule so React Router routes resolve correctly on page refreshes
+      - type: rewrite
+        src: /*
+        dest: /index.html
+    envVars:
+      - key: VITE_API_URL
+        value: https://cloud-storage-access-backend.onrender.com/api # Replace with actual backend Render URL
