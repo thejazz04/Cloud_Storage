@@ -80,10 +80,10 @@ const DashboardLayout = ({ children }) => {
         <div className="h-16 flex items-center justify-between px-4 border-b border-slate-800">
           <Link to="/dashboard" className="flex items-center gap-3 font-semibold text-white overflow-hidden whitespace-nowrap">
             <div className="w-8 h-8 rounded-lg bg-brand-500 flex items-center justify-center flex-shrink-0 text-white font-bold shadow-md shadow-brand-500/20">
-              LE
+              CA
             </div>
             <span className={`transition-opacity duration-200 ${sidebarOpen ? 'opacity-100' : 'opacity-0 w-0'}`}>
-              LeaveEase Cloud
+              CloudAccess
             </span>
           </Link>
           <button 
@@ -173,7 +173,7 @@ const DashboardLayout = ({ children }) => {
             ></div>
             <aside className="relative flex flex-col w-64 bg-slate-900 text-slate-300 h-full max-w-xs shadow-2xl">
               <div className="h-16 flex items-center px-6 border-b border-slate-800">
-                <span className="font-semibold text-white text-lg">LeaveEase Cloud</span>
+                <span className="font-semibold text-white text-lg">CloudAccess</span>
               </div>
               <div className="p-4 border-b border-slate-800">
                 <p className="text-sm font-medium text-white truncate">{user?.name}</p>

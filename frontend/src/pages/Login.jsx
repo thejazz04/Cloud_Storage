@@ -70,7 +70,7 @@ const Login = () => {
             <Shield size={24} />
           </div>
           <h2 className="text-2xl font-bold text-white tracking-tight">Welcome Back</h2>
-          <p className="text-slate-400 text-xs mt-1">LeaveEase Cloud Storage Access Control</p>
+          <p className="text-slate-400 text-xs mt-1">CloudAccess Storage Access Control</p>
         </div>
 
         {/* Login Card */}
